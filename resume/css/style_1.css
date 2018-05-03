@@ -1,0 +1,61 @@
+/*
+* @Author: hujia
+* @Date:   2018-05-02 23:34:16
+* @Last Modified by:   hujia
+* @Last Modified time: 2018-05-03 16:49:48
+*/
+* {
+	margin: 0;
+	padding: 0;
+}
+li {
+list-style-type: none;
+}
+li.fl {
+	float: left;
+}
+.clearfix:after {
+	content: ""; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+} 
+ .clearfix {
+ 	*zoom: 1;
+ }
+ .f, li .flo {
+ 	display: inline-block;
+ }
+ ul {
+ 	padding: 0;
+ }
+ .clearfix .fl {
+ 	margin-right: 36px;
+ }
+ div.content {
+ 	margin-top: 6px;
+ 	margin-bottom: 15px;
+ }
+ .resume {
+ 	height: 33px;
+ 	line-height: 33px;
+ 	margin-top: 25px;
+ 	margin-bottom: 8px;
+ 	font: 700 33px SimHei;
+ }
+ .title2 {
+ 	margin-top: 25px;
+ 	margin-bottom: 25px;
+ 	font: 700 28px SimHei;
+ }
+ body {
+ 	padding-left: 20px;
+ }
+ .title3 {
+ 	font: 700 19px SimSun;
+ }
+ .content, .flo {
+ 	font: 19px SimSun;
+ }
+

@@ -1,0 +1,70 @@
+/*
+* @Author: hujia
+* @Date:   2018-05-02 23:35:22
+* @Last Modified by:   hujia
+* @Last Modified time: 2018-05-03 18:06:06
+*/
+* {
+	margin: 0;
+	padding: 0;
+}
+.resume {
+	height: 1368px;
+	width: 230px;
+	background-color: #3F8EF9;
+	padding-top: 112px;
+	padding-left: 100px;
+	color: #FFFFFF;
+	font: 700 50px "Microsoft YaHei";
+	float: left;
+}
+body {
+	padding-top: 20px;
+	padding-left: 20px;
+}
+.main {
+	height: 1480px;
+	padding-left: 40px;
+	width: 950px;
+	float: left;
+}
+li {
+	list-style: none;
+	font: 25px "Microsoft YaHei";	
+}
+.title2 {
+	height: 55px;
+	font: 700 35px "Microsoft YaHei";
+	line-height: 55px;
+	margin-top: 45px;
+	margin-bottom: 40px;
+}	
+li.fl {
+	float: left;
+	height: 40px;
+}
+.title3 {
+	font-weight: 700;
+}
+.f,.flo {
+	display: inline-block;
+}
+.flo {
+	margin-right: 50px;
+	margin-left: 10px;
+}
+.clearfix:after {
+	content: ""; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+} 
+ .clearfix {
+ 	*zoom: 1;
+ }
+ .content {
+	margin-top: 10px;
+	margin-bottom: 40px;
+ }
+
