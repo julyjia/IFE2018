@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+html, body {
+	margin: 0;
+	height: 100%;
+}	
+body {
+	display: flex;
+}
+.left {
+	height: 100%;
+	background-color: blue;
+	flex: 0 0 100px;
+	order: 1;
+}
+.main {
+	height: 100%;
+	background-color: pink;
+	flex: 0 0 100px;
+	order: 2;	
+}
+.right {
+	height: 100%;
+	background-color: green;
+	flex: 1 1 auto;
+	order: 3;
+}
+</style>
+<body>
+<div class="left">
+	我是左边盒子，宽度为100px。
+</div>
+<div class="main">
+		我是中间盒子，宽度为100px。
+</div>	
+<div class="right">
+	我是右边盒子，宽度自适应。
+</div>
+</body>
+</html>

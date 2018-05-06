@@ -1,0 +1,183 @@
+/*
+* @Author: hujia
+* @Date:   2018-05-05 21:25:11
+* @Last Modified by:   hujia
+* @Last Modified time: 2018-05-06 09:20:44
+*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-size: 62.5%;
+}
+header {
+	width: 100%;
+	height: 80px;
+	background-color: black;
+}
+.container1,
+.container2,
+.container3,
+.container4,
+.container5 {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+.container1 {
+	height: 80px;
+	overflow: auto;
+}
+.logo {
+	color: white;
+	float: left;
+	font: 1.47rem arial;
+	margin-top: 17px;
+}
+ul {
+	list-style: none;
+}
+.nav{
+	float: right;
+	margin-top: 9px;
+}
+li{
+	float: left;
+}
+.nav li{
+	margin-right: 11px;
+}
+.panels li{
+	margin-right: 6px;
+}
+a.loginbar {
+	color: white;
+	font: 1.0rem arial;
+}
+.banner {
+	width: 100%;
+	height: 300px;
+	background-color: #66BB33;
+}
+.container2 {
+	height: 300px;
+	position: relative;
+}
+.panels .change {
+	width: 28px;
+	height: 35px;
+	border: 1px solid #335E1A;
+	display: inline-block;
+	text-align: center;
+	line-height: 3;
+	text-decoration: none;
+	color: #66914D;
+	background-color: #B2DD99;
+}
+.panels .active {
+	width: 30px;
+	height: 50px;
+	border: 1px solid #14250A;
+	display: inline-block;
+	text-align: center;
+	padding-top: 24px;
+	text-decoration: none;
+	color: #14250A;
+	background-color: #E0F1D6;
+	position: relative;
+	bottom: 15px;
+}
+.panels {
+	position: absolute;
+	bottom: 10px;
+	right: 0px;
+}
+.menu {
+	width: 100%;
+	height: 70px;
+	border-bottom: 1px solid #DDDDDD;
+}
+.container3 {
+	height: 70px;
+	position: relative;	
+}
+.menu .submenu {
+	width: 106px;
+	height: 51px;
+	border: 1px solid #DDDDDD;
+	border-radius: 15px 15px 0 0;
+	display: inline-block;
+	text-align: center;
+	line-height: 3;
+	text-decoration: none;
+	color: #000000;
+	background-color: #EEEEEE;
+}
+.menu .active {
+	width: 106px;
+	height: 51px;
+	border: 1px solid #CCCCCC;
+	border-bottom: 1px solid #FFFFFF;
+	border-radius: 15px 15px 0 0;
+	display: inline-block;
+	text-align: center;
+	line-height: 3;
+	text-decoration: none;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+.menu .column {
+	position: absolute;
+	bottom: 0;
+}
+.main {
+	widows: 100%;
+	height: 580px;
+}
+.main .container4 {
+	height: 580px;
+	padding-bottom: 20px;
+	padding-top: 10px;
+	overflow: hidden;
+
+}
+.column1, 
+.column2,
+.column3 {
+	display: flex;
+	flex-flow: row wrap;
+}
+.content1, .content3,
+.content4, .content8,
+.content10 {
+	border: 1px solid #DDDDDD;	
+	margin: 5px;
+	flex: 200px；
+}
+.content1, .content3 {
+	padding: 80px 105px;
+}
+.content4 {
+	padding: 80px;	
+}
+.content8, .content10 {
+	padding: 80px 118px;
+}
+footer {
+	width: 100%;
+	height: 120px;
+	background-color: #666666;
+}
+.container5 {
+	width: 100%;
+	max-width: 960px;
+	height: 120px;	
+}
+.container5 .copyright {
+	text-align: center;
+	color: #FFFFFF;
+	padding-top: 20px;
+	margin-top: 20px;
+}
