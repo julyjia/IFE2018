@@ -1,0 +1,44 @@
+/*
+* @Author: hujia
+* @Date:   2018-05-06 22:30:49
+* @Last Modified by:   hujia
+* @Last Modified time: 2018-05-10 22:53:57
+*/
+.public-container {
+	width: 100%;
+	max-width: 970px;
+  min-width: 970px;
+	margin: auto;
+}
+ul, dl, dt, dd {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?axvffw');
+  src:  url('../fonts/icomoon.eot?axvffw#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?axvffw') format('truetype'),
+    url('../fonts/icomoon.woff?axvffw') format('woff'),
+    url('../fonts/icomoon.svg?axvffw#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+}
+.footer-containter {
+  width: 100%;
+	max-width: 1170px;
+  margin: auto;
+}
