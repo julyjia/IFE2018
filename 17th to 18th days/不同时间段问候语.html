@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>不同时间段问候语</title>
+</head>
+<body>
+<script>
+	var now = new Date();	
+	var hours = now.getHours();	
+	if (hours >= 0 && hours < 9) {
+        alert('早上好！') ;
+	}
+	else if (hours >= 9 && hours < 12) {
+		alert('上午好！');
+	}
+	else if (hours >= 12 && hours < 15) {
+		alert('中午好！');
+	}
+	else if (hours >= 15 && hours < 18) {
+		alert('下午好！');
+	}
+	else if (hours >= 18 && hours < 24) {
+		alert('晚上好！');
+	}
+	
+	 
+</script>	
+</body>
+</html>

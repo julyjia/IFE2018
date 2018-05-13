@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>九九乘法表</title>
+
+</head>
+<body>
+	<table width="600" height="250" align="center" border="1" cellspacing="0" cellspacing="0">
+		<caption>九九乘法表</caption>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+		<tr></tr>
+	</table>
+	<script>
+	var rows = document.querySelectorAll('tr');
+	for (var m = 1; m <= 9; m++) {
+		for (var n = m; n <= 9; n++) {
+			var t = m * n;
+			var columns = document.createElement('td');
+			columns.textContent = m + '×' + n + '=' + t;
+			rows[n-1].appendChild(columns);
+		}
+	}	
+	</script>
+</body>
+</html>

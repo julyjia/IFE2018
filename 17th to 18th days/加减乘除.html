@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+    var para = document.querySelector('p');
+    function btnChange(e) {
+        var firstNumber = document.querySelector('#first-number').value;
+        var secondNumber = document.querySelector('#second-number').value;
+        if (isNaN(firstNumber) || isNaN(secondNumber)) {
+           para.textContent = '请输入数字！'; 
+           console.log('请输入数字！');
+        }
+        else if (e.target.getAttribute('id') === 'add-btn') {
+            var result = Number(firstNumber) + Number(secondNumber);
+            para.textContent = '运算结果：' + result;
+        }
+        else if (e.target.getAttribute('id') === 'minus-btn') {           
+           var result = Number(firstNumber) - Number(secondNumber);
+           para.textContent = '运算结果：' + result;
+        }
+        else if (e.target.getAttribute('id') === 'times-btn') {
+           var result = Number(firstNumber) * Number(secondNumber);
+           para.textContent = '运算结果：' + result;
+        }
+        else if (e.target.getAttribute('id') === 'divide-btn') {
+            if (Number(secondNumber) === 0) {
+                para.textContent = '除数不能为零！';
+                console.log('除数不能为零！');
+            }
+            else {
+                var result = Number(firstNumber) / Number(secondNumber);
+                para.textContent = '运算结果：' + result;
+            }        
+        }      
+        }
+    var bttons = document.querySelectorAll('button');
+        for(var i = 0; i < bttons.length; i++) {
+          bttons[i].onclick = btnChange;
+        }
+    </script>
+</body>
+</html>

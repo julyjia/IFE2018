@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	3的小游戏</title>
+</head>
+<body>
+	<p>看console中输出的数字。</p>
+	<script>
+	function threeNum(num) {
+		if (num % 10 ===3) {
+            return true;
+		}
+	}
+	for (var i = 1; i <= 100; i++) {
+        if (i % 3 === 0 || threeNum(i)) {
+            console.log('PA')  ;
+        }
+        else {
+        	console.log(i);
+        }
+	}
+	</script>
+</body>
+</html>

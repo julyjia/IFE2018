@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取当前时间</title>
+</head>
+<body>
+	<button>显示当前时间</button>
+	<script>
+	var html = document.querySelector('html');
+	var para = document.createElement('p');
+	var btn = document.querySelector('button');
+	btn.addEventListener('click', function(){
+		para.textContent = '当前时间是：' + new Date();
+		html.appendChild(para);
+	})   
+	</script>
+</body>
+</html>
