@@ -1,0 +1,38 @@
+/*
+* @Author: hujia
+* @Date:   2018-05-07 15:40:19
+* @Last Modified by:   hujia
+* @Last Modified time: 2018-05-17 21:27:28
+*/
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, p, img,input, form, p, a, button, textarea {
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	font-weight: 400;
+} 
+button {
+	border: none;
+
+}
+ol, ul, li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	display: block;
+}
+img {
+	border: none;
+	display: block;
+}
+.clearfix {
+	*zoom: 1;
+
+}
+.clearfix::after {
+	display: block;
+	clear: both;
+	content: "";
+	visibility: hidden;
+	height: 0;
+}
