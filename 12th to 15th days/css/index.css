@@ -450,6 +450,7 @@ html, body {
 .dialog .text p {
 	font-size: 14px;
 	padding-top: 10px;
+        color: #585d68;
 }
 .open-chat .inputbox {
 	padding: 28px 0 22px 30px;
