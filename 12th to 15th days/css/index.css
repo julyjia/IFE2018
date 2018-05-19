@@ -168,8 +168,11 @@ html, body {
     color: #fff;
     text-align: center;
 }
+.last-col :last-child {
+	margin-bottom: 320px;
+}
 .bottom-bar .bottom-text {
-	font-size: 14px;
+    font-size: 14px;
     color: #fff;
     margin-bottom: 12px;
 }
