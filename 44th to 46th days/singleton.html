@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单例模式实战</title>
+</head>
+<body>
+	<script type="text/javascript">
+             // 声明餐厅类
+			var Restaurant = function(props) {
+			this.cash = props.cash;
+			this.seats = props.seats || 1;
+			this.staff = props.staff;
+			this.hire = function(name) {
+				this.staff.push(name);
+			};
+			this.fire = function(name) {
+                var i = this.staff.indexOf(name);
+				this.staff.splice(i, 1);
+			};
+		}
+
+            // 声明职员类
+		    var Staff = function(name, salary, ID) {
+		    	this.name = name || 'Unnamed';
+		    	this.salary = salary || 'None';
+		    	this.ID = ID || 'None';
+		    }
+		    Staff.prototype.work = function () {
+		    console.log('Finish a work');
+	        };
+
+            // 声明服务员类
+	        var Waiter = (function (name, salary, ID) {
+		    var instance = null;
+
+		    function Waiter(name, salary, ID) {
+		    	if (instance) {
+		    		return instance;
+		    	}
+		    	Staff.call(this, name, salary, ID);
+		    	this.order = function() {
+                var dish = queue.items[0].order();
+                console.log (dish +', OK!');
+                return dish;
+                };
+            this.toCook = function(dish) {
+                console.log ('The customer want '+ dish + '.');
+                };
+            this.serveDish = function() {
+                console.log ('This is your dish.');
+                };
+		    	return instance = this;
+		    }
+		    Waiter.prototype = Object.create(Staff.prototype);
+		    Waiter.prototype.constructor = Waiter;
+		    return Waiter;
+	    })();
+
+            // 声明厨师类
+            var Cook = (function (name, salary, ID) {
+		    var instance = null;
+
+		    function Cook() {
+		    	if (instance) {
+		    		return instance;
+		    	}
+		    	Staff.call(this, name, salary, ID);
+		    	this.cooking = function() {
+                console.log ("OK! I'm cooking.");
+                };
+		        this.finishedCook = function() {
+                    console.log('I have finished cook.');
+                };
+		    	return instance = this;
+		    }
+		    Cook.prototype = Object.create(Staff.prototype);
+		    Cook.prototype.constructor = Cook;
+		    return Cook;
+	    })();
+
+            // 声明菜品类
+		    var Dishes = function(name, cost, price) {
+            this.name = name;
+            this.price = price;
+		}
+
+		    // 创建菜单
+		    var fish = new Dishes('fish', '¥38');
+		    var tofu = new Dishes('tofu', '¥10');
+		    var chicken = new Dishes('chicken', '¥45');
+		    var dumplings = new Dishes('dumplings', '¥6');
+            var rice = new Dishes('rice', '¥2');
+            var cabbage = new Dishes('cabbage', '¥10');
+            var beef = new Dishes('beef', '¥50');
+            var salad = new Dishes('salad', '¥12');
+            var sandwich = new Dishes('sandwich', '¥15');
+            var bacon = new Dishes('bacon', '¥20');
+            var menu = [fish, tofu, chicken, dumplings, rice, cabbage, beef, salad, sandwich, bacon];
+
+            // 声明顾客类
+	        var Customer = function() {
+	        this.sitdown = function() {
+	        	console.log('Waiter, I would like to order.');
+	        }
+            this.order = function() {
+                var j = Math.floor(Math.random()*10);
+                console.log( 'I want a ' + menu[j].name +'.');
+                return menu[j].name;
+            }
+            this.eat = function() {
+            	console.log('Thank you!');
+                console.log('I started eating.');
+            }
+            this.leave = function() {
+            	console.log('I finished eating.');
+            	queue.dequeue();
+            	if (!queue.isEmpty()) {
+                  return operation();
+            	}
+            	else {
+            		console.log('There is no customer.')
+            	}
+            }
+		}
+
+            // 声明队列
+            function Queue() {
+            this.items = [];
+            }
+          Queue.prototype = {
+            constructor: Queue,
+            enqueue:function(elements){
+              var elements = new Customer();
+              this.items.push(elements);
+            },
+            dequeue:function() {
+              return this.items.shift();
+            },
+            front:function() {
+              return this.items[0];
+            },
+            isEmpty:function() {
+              return this.items.length == 0;
+            },
+            size:function() {
+              return this.items.length;
+            },
+            clear:function() {
+              this.items = [];
+            },
+            print:function() {
+              console.log(this.items.toString());
+            }
+          }
+
+            // 创建一个顾客队列
+            var queue = new Queue();
+            queue.enqueue('Lisa');
+            queue.enqueue('Anna');
+            queue.enqueue('John');
+            queue.enqueue('Bob');
+            queue.enqueue('Lucy');
+
+            var waiter = new Waiter("Lily", 8000);
+            var cook = new Cook("Tony", 10000);
+            //定义餐厅的一次运作流程函数
+            var operation = function() {
+            queue.items[0].sitdown();
+            var dish = waiter.order();
+            waiter.toCook(dish);
+            cook.cooking();
+            cook.finishedCook();
+            waiter.serveDish();
+            queue.items[0].eat();
+            queue.items[0].leave();
+           };
+           operation();
+
+	</script>
+</body>
+</html>
