@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Restaurant {
+			constructor(props){
+				this.cash = props.cash;
+			    this.seats = props.seats;
+			    this.staff = props.staff;
+			    this.hire = function(name) {
+				this.staff.push(name);
+			};
+			    this.fire = function(name) {
+                var i = this.staff.indexOf(name);
+				this.staff.splice(i, 1);
+			};
+			}
+		}
+		class Staff {
+			constructor(name, salary, ID) {
+			this.name = name || 'Unnamed';
+			this.salary = salary || 'None';
+			this.ID = ID || 'None';
+			this.work = function() {
+				console.log('Finish a work');
+			    }
+		    }
+	    }
+		class Waiter extends Staff{
+			constructor(name, salary, ID) {
+            super(name, salary, ID);
+            this.work = function(type) {
+            if (type instanceof Array) {
+            	console.log('Finish a work: write down a menu.');
+                }
+            else {
+                console.log('Finish a work: serve the dishes.');
+                }
+                }
+		    }
+	    }
+		class Cook extends Staff {
+			constructor(name, salary, ID) {
+            super(name, salary, ID);
+            this.work = function(type) {
+                console.log('Finish a work: cook the dishes.');
+            }
+		    }
+		}
+		class Customer {
+			constructor() {
+            this.order = function(dishes) {
+                console.log('Ordering dishes.');
+            }
+		    }
+	    }
+		class Dishes {
+			constructor(name, cost, price) {
+            this.name = name;
+            this.cost = cost;
+            this.price = price;
+		    }
+	    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var Restaurant = function(props){
+			this.cash = props.cash;
+			this.seats = props.seats;
+			this.staff = props.staff;
+			this.hire = function(name) {
+				this.staff.push(name);
+			};
+			this.fire = function(name) {
+                var i = this.staff.indexOf(name);
+				this.staff.splice(i, 1);
+			};
+		}
+		var Staff = function(name, salary, ID) {
+			this.name = name || 'Unnamed';
+			this.salary = salary || 'None';
+			this.ID = ID || 'None';
+			this.work = function() {
+				console.log('Finish a work');
+			}
+		}
+		function Waiter(name, salary, ID) {
+            Staff.call(this, name, salary, ID);
+            this.work = function(type) {
+            if (type instanceof Array) {
+            	console.log('Finish a work: write down a menu.');
+            }
+            else {
+                console.log('Finish a work: serve the dishes.');
+            }
+            }
+		}
+		Waiter.prototype = Object.create(Staff.prototype);
+		Waiter.prototype.constructor = Waiter;
+		function Cook(name, salary, ID) {
+            Staff.call(this, name, salary, ID);
+            this.work = function(type) {
+                console.log('Finish a work: cook the dishes.');
+            }
+		}
+		Cook.prototype = Object.create(Staff.prototype);
+		Cook.prototype.constructor = Cook;
+		var Customer = function() {
+            this.order = function(dishes) {
+                console.log('Ordering dishes.');
+            }
+		}
+		var Dishes = function(name, cost, price) {
+            this.name = name;
+            this.cost = cost;
+            this.price = price;
+		}
+	</script>
+</body>
+</html>
