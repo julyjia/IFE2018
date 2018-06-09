@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input id="name" type="text">
+	<button id="submit-btn">Submit</button>
+	<script>
+		var btn = document.getElementById("submit-btn");
+		var input = document.getElementById("name");
+		btn.onclick = function() {
+			var text = input.value;
+			console.log(text);
+		};
+		//（13为Enter，9为Tab，27为Esc)
+         window.onkeydown = function(evt) {
+        	evt = window.event || evt;
+        	var text = input.value;
+            if(evt.keyCode===13){
+            //按下Enter健要执行的方法
+              console.log(text);
+             } else if(evt.keyCode===27){
+              //按下Esc健要执行的方法
+              text = "";
+             }
+        };
+	</script>
+</body>
+</html>

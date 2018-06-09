@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+     </script>
+    <style>
+        select {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input id="school" name="status" type="radio" value="School">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio" value="Company">
+        Company
+    </label>
+
+    <select id="school-select">        
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">        
+        <option>百度</option>
+        <option>爱奇艺</option>        
+    </select>
+    <script>
+        $(function(){
+         $(":radio").click(function(){
+         if (this.value == 'School') {
+            document.getElementById("school-select").style.cssText = "display: block;"
+            document.getElementById("company-select").style.cssText = "display: none;"
+        }
+        else if (this.value == 'Company') {
+            document.getElementById("company-select").style.cssText = "display: block;"
+            document.getElementById("school-select").style.cssText = "display: none;"
+        }
+         });
+        });
+
+    </script>
+</body>
+</html>

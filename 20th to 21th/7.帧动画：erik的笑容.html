@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>帧动画：erik的笑容</title>
+	<style type="text/css">
+		div {
+			width: 480px;
+			height: 480px;
+			background-image:  url('erik.jpg');
+			background-repeat:  no-repeat;
+		}
+	</style>
+</head>
+<body>
+    <div style="background-position: 0px 0px;"></div>
+	<script type="text/javascript">
+		var div = document.getElementsByTagName('div')[0];
+		window.onload = function(){
+			if (div.style.backgroundPosition === '0px 0px') {
+                    setTimeout(toRight, 100);
+             }
+             else if(div.style.backgroundPosition === '0px -7680px') {
+					setTimeout(toLeft, 100);
+             }
+			function toRight() {
+				var lengthy = div.style.backgroundPosition.split(' ')[1];
+				var ly;
+				if(lengthy.length === 3) {
+					ly = lengthy.substring(0,1);
+				}
+				else if(lengthy.length === 6) {
+					ly = lengthy.substring(0,4);
+				}
+				else if(lengthy.length === 7) {
+					ly = lengthy.substring(0,5);
+				}
+				var sum = Number(ly) - 480;
+				var position = '0px ' + sum + 'px';
+				div.style.backgroundPosition = position;
+				if (sum === -7680) {
+                    setTimeout(toLeft, 100);
+                }
+                else if (0 >= sum && sum > -7680) {
+                    setTimeout(toRight, 100);
+             }
+			}
+			function toLeft() {
+				var lengthy = div.style.backgroundPosition.split(' ')[1];
+				var ly;
+				if(lengthy.length === 3) {
+					ly = lengthy.substring(0,1);
+				}
+				else if(lengthy.length === 6) {
+					ly = lengthy.substring(0,4);
+				}
+				else if(lengthy.length === 7) {
+					ly = lengthy.substring(0,5);
+				}
+				var sum = Number(ly) + 480;
+				var position = '0px ' + sum + 'px';
+				div.style.backgroundPosition = position;
+				if (sum === 0) {
+                    setTimeout(toRight, 100);
+                }
+                else if (0 >= sum && sum > -7680) {
+                    setTimeout(toLeft, 100);
+			    }
+		    }
+		}
+	</script>
+</body>
+</html>
