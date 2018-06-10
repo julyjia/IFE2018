@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Date函数封装-当前日期时间</title>
+	<style type="text/css">
+		#txt {
+			height: 30px;
+			width: 300px;
+			border: 1px solid #ccc;
+			margin-bottom: 10px;
+			text-align: center;
+			line-height: 30px;
+		}
+		#btn {
+			margin-left: 82px;
+		}
+	</style>
+</head>
+<body>
+	<div id="txt"></div>
+	<button id = "btn">显示当前时间</button>
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		// 根据某个日期返回这一天是星期几
+		function week() {
+			var today = new Date();
+			var weekday = new Array(7);
+            weekday[0]="Sunday";
+            weekday[1]="Monday";
+            weekday[2]="Tuesday";
+            weekday[3]="Wednesday";
+            weekday[4]="Thursday";
+            weekday[5]="Friday";
+            weekday[6]="Saturday";
+            return weekday[today.getDay()];
+		}
+		// 获取当前日期
+		function nowDate() {
+			var today = new Date();
+			var year = today.getFullYear();
+			var month = today.getMonth() + 1;
+			var date = today.getDate();
+			month = checkTime(month);
+			date = checkTime(date);
+			var result = year + '-' + month + '-' + date;
+			return result;
+		}
+		// 时间更新
+        function startTime() {
+        	var today = new Date();
+		    var h=today.getHours();
+		    var unit;
+		    if (h > 12){
+		    	h = h - 12;
+                unit = 'PM';
+		    }
+		    else {
+		    	unit = 'AM'
+		    }
+		    var m=today.getMinutes();
+		    var s=today.getSeconds();
+		    h = checkTime(h);
+            m=checkTime(m);
+            s=checkTime(s);
+            var result = h+":"+m+":"+s+' '+unit;
+            return result;
+        }
+		// 把月、日、小时等出现个位数的情况前面补充0，补充为两位
+		function checkTime(i) {
+			if (i < 10) {
+				i="0" + i;
+			}
+			return i;
+		}
+		// 把最后的日期时间，按照要求的格式进行包装
+        function format() {
+        	var a = nowDate();
+        	var b = week();
+        	var c = startTime();
+            document.getElementById('txt').innerHTML= a + ' '+ b + ' ' + c;
+            t=setTimeout('format()', 1000);
+        }
+        btn.onclick = function() {
+        	format();
+        }
+	</script>
+</body>
+</html>
