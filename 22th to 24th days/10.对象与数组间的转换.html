@@ -55,7 +55,22 @@ var menuArr = [
     [7, "Area1-2-3", 4],
     [8, "Area2-2-1", 6],
 ];
-
+// 这方法是参考的别人的，但实在想不到更好的方法
+// 代码来自 https://github.com/yeung66/ife-basic/blob/master/basic22-24/sort.html
+function menuObject(arr) {
+            let obj = {0: {}};
+            for (let i = 0, len = arr.length; i < len; i++) {
+                obj[arr[i][0]] = {name: arr[i][1]};
+                if (arr[i][2] < 0) {
+                    obj[0][arr[i][0]] = obj[arr[i][0]];
+                } else {
+                    obj[arr[i][2]].subMenu = obj[arr[i][2]].subMenu || {};
+                    obj[arr[i][2]].subMenu[arr[i][0]] = obj[arr[i][0]];
+                }
+            }
+            return obj[0];
+        }
+        console.log(menuObject(menuArr));
 	</script>
 </body>
 </html>
