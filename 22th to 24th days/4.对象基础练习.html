@@ -61,12 +61,34 @@
 
 // 假设id和name均不会重复，根据输入name找到对应的id
 function findIdByName(name) {
-
+var id;
+    function node(tree) {
+        if (tree) {
+            if (tree.name == name) {
+                id = tree.id;
+            }
+        node(tree.left);
+        node(tree.right);
+        }
+    }
+    node(tree);
+    return id;
 }
 
 // 假设id和name均不会重复，根据输入id找到对应的name
 function findNameById(id) {
-
+var name;
+    function node(tree) {
+        if (tree) {
+            if (tree.id == id) {
+                name = tree.name;
+            }
+        node(tree.left);
+        node(tree.right);
+        }
+    }
+    node(tree);
+    return name;
 }
 
 // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
