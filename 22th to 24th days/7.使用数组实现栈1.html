@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用数组实现栈1</title>
+</head>
+<body>
+	<input id="stack-input" type="text">
+	<p id="stack-cont">栈内容：apple-&gt;pear</p>    
+	<button id="push-btn">进栈</button>
+	<button id="pop-btn">退栈</button>
+	<button id="font-btn">打印栈顶元素内容</button>
+	<button id="empty-btn">判断栈是否为空</button>
+
+	<script>
+    function Stack(){
+      this.items = [];
+    }
+    Stack.prototype = {
+      constructor:Stack,
+      push:function(element){
+        this.items.push(element);
+      },
+      pop:function(){
+        return this.items.pop();
+      },
+      peek:function(){
+        return this.items[this.items.length - 1];
+      },
+      isEmpty:function(){
+        return this.items.length == 0;
+      }
+    }
+    var stack = new Stack();
+	stack.push("apple");
+	stack.push("pear");
+    var pushBtn = document.getElementById('push-btn');
+	var popBtn = document.getElementById('pop-btn');
+	var fontBtn = document.getElementById('font-btn');
+	var emptyBtn = document.getElementById('empty-btn');
+	var p = document.getElementById('stack-cont');
+	var stackInput = document.getElementById('stack-input');
+	pushBtn.onclick = function() {
+		stack.push(stackInput.value);
+		p.innerHTML = '队列内容：'+ stack.items.join('->');
+	}
+	popBtn.onclick = function() {
+		stack.pop(stackInput.value);
+		p.innerHTML = '队列内容：'+ stack.items.join('->');
+	}
+	fontBtn.onclick = function() {
+		if(stack.isEmpty()){
+			p.innerHTML = '队列内容为空';
+		}
+		else {
+			p.innerHTML = '队头为：'+ stack.peek();
+		}
+	}
+	emptyBtn.onclick = function() {
+		if(stack.isEmpty()){
+			p.innerHTML = '队列内容为空';
+		}
+		else {
+			p.innerHTML = '队列不为空，其内容为：'+ stack.items.join('->');
+		}
+	}
+	</script>
+</body>
+</html>

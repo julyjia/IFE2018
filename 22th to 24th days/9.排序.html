@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排序</title>
+</head>
+<body>
+	<p>请打开控制台</p>
+	<script type="text/javascript">
+		function compare(a,b) {
+			if(a<b){
+				return -1;
+			}
+			if(a>b){
+				return 1;
+			}
+			return 0;
+		}
+		var arr1 = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+		console.log('将[43, 54, 4, -4, 84, 100, 58, 27, 140]从小到大排序后为：');
+		console.log(arr1.sort((a, b) => a - b));
+		console.log('将[43, 54, 4, -4, 84, 100, 58, 27, 140]从大到小排序后为：');
+		console.log(arr1.sort((a, b) => b - a));
+		var arr2 = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+		console.log("将['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane']按字母顺序a-z排序后为：");
+		console.log(arr2.sort(function (x, y) {
+			a = x.toUpperCase();
+			b = y.toUpperCase();
+			if(a<b){
+				return -1;
+			}
+			if(a>b){
+				return 1;
+			}
+			return 0;
+		}));
+		console.log('将'+arr2+'按字母顺序z-a排序后为：');
+		console.log(arr2.sort(function (x, y) {
+			a = x.toUpperCase();
+			b = y.toUpperCase();
+			if(a<b){
+				return 1;
+			}
+			if(a>b){
+				return -1;
+			}
+			return 0;
+		}));
+		var arr3 = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+		console.log('将[[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]]按照每个元素中第二个数从大到小排序后为：');
+		console.log(arr3.sort(function (x, y) {
+			a = x[1];
+			b = y[1];
+			if(a<b){
+				return 1;
+			}
+			if(a>b){
+				return -1;
+			}
+			return 0;
+		}));
+		var arr4 = [
+    {
+        id: 1,
+        name: 'candy',
+        value: 40
+    }, {
+        id: 2,
+        name: 'Simon',
+        value: 50
+    }, {
+        id: 3,
+        name: 'Tony',
+        value: 45
+    }, {
+        id: 4,
+        name: 'Annie',
+        value: 60
+    }
+];
+console.log("将arr4分别按元素对象的value值从小到大进行排序后为：");
+		console.log(arr4.sort(function (x, y) {
+			a = x.value;
+			b = y.value;
+			if(a<b){
+				return -1;
+			}
+			if(a>b){
+				return 1;
+			}
+			return 0;
+		}));
+	</script>
+</body>
+</html>

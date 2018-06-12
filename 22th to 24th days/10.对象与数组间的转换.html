@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象与数组间的转换</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 对象转换为数组
+		var scoreObject = {
+    "Tony": {
+        "Math": 95,
+        "English": 79,
+        "Music": 68
+    },
+    "Simon": {
+        "Math": 100,
+        "English": 95,
+        "Music": 98
+    },
+    "Annie": {
+        "Math": 54,
+        "English": 65,
+        "Music": 88
+    }
+}
+function objectToArray(object) {
+var arr = [], arr1 = [], arr2 = [], arr3 = [];
+var k = 0;
+for(var key in object) {
+	arr2[k] = [];
+	arr1.push(object[key]);
+	arr2[k].push(key);
+	k = k+1;
+}
+var arr3 = arr1.map(item => {
+  return Object.values(item);
+})
+
+for(var i = 0; i < arr1.length; i++) {
+	arr[i] = arr2[i].concat(arr3[i]);
+}
+return arr;
+}
+var scoreArray = objectToArray(scoreObject);
+console.log(scoreArray);
+// 数组转换为对象
+var menuArr = [
+    [1, "Area1", -1],
+    [2, "Area2", -1],
+    [3, "Area1-1", 1],
+    [4, "Area1-2", 1],
+    [5, "Area2-1", 2],
+    [6, "Area2-2", 2],
+    [7, "Area1-2-3", 4],
+    [8, "Area2-2-1", 6],
+];
+
+	</script>
+</body>
+</html>

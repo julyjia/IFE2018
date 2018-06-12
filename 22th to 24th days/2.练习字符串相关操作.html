@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习字符串相关操作</title>
+    <style type="text/css">
+        textarea {
+            line-height: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label>String A:
+            <input id="radio-a" type="radio" checked="true" name="str-obj" value="a">
+        </label>
+        <textarea id="str-a"></textarea>
+        <label>String B:
+            <input id="radio-b" type="radio" name="str-obj" value="b">
+        </label>
+        <textarea id="str-b"></textarea>
+        <label>Num A：<input id="num-a" type="number" value="0"></label>
+        <label>Num B：<input id="num-b" type="number" value="1"></label>
+    </div>
+    <div>
+        <button>获取当前选中输入的内容长度</button>
+        <button>当前选中输入中的第3个字符</button>
+        <button>把两个输入框的文字连接在一起输出（concat）</button>
+        <button>输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+        <button>输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+        <button>使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+        <button>当前选中输入框的行数</button>
+        <button>使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+        <button>把所选输入框中的内容全部转为大写</button>
+        <button>把所选输入框中的内容全部转为小写</button>
+        <button>把所选输入框中内容的半角空格全部去除</button>
+        <button>把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+    </div>
+    <p id="result">结果：</p>
+    <script type="text/javascript">
+    var radioA = document.getElementById('radio-a');
+    var radioB = document.getElementById('radio-b');
+    var strA = document.getElementById('str-a');
+    var strB = document.getElementById('str-b');
+    var buttons = document.querySelectorAll('button');
+    var result = document.getElementById('result');
+    var numA = document.getElementById('num-a');
+    var numB = document.getElementById('num-b');
+    buttons[0].onclick = function() {
+        if (radioA.checked) {
+            if (strA.value===""){
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                 result.innerHTML = '结果：'+strA.value.length;
+            }
+        }
+        else {
+            if (strB.value==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+            result.innerHTML = '结果：'+strB.value.length;
+        }
+        }
+    }
+    buttons[1].onclick = function() {
+        if (radioA.checked) {
+            var a = strA.value;
+            if (a==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+            result.innerHTML = '结果：'+a[2];
+            }
+        }
+        else {
+            var b = strB.value;
+            if (b==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+            result.innerHTML = '结果：'+b[2];
+            }
+        }
+    }
+    buttons[2].onclick = function() {
+        if(strA.value==="" || strB.value) {
+            result.innerHTML = '内容不能为空！';
+        }
+        else{
+        var a = strA.value.split('');
+        var b = strB.value.split('')
+        var c = a.concat(b);
+        var d = c.join('');
+        result.innerHTML = '结果：'+d;
+        }
+    }
+    buttons[3].onclick = function() {
+        if(strA.value==="" || strB.value==="") {
+            result.innerHTML = '内容不能为空！';
+        }
+        else{
+        var b = strB.value;
+        var a = strA.value;
+        var c = a.indexOf(b);
+        if (c===-1){
+            result.innerHTML = '输入A中不包含输入B中完整内容';
+        }
+        else {
+            result.innerHTML = '结果：输入B的内容第一次在输入A出现的位置是第'+(c+1)+'位';
+        }
+        }
+    }
+    buttons[4].onclick = function() {
+        if(strA.value==="" || strB.value==="") {
+            result.innerHTML = '内容不能为空！';
+        }
+        else{
+        var b = strB.value;
+        var a = strA.value;
+        var c = a.lastIndexOf(b);
+        if (c===-1){
+            result.innerHTML = '输入A中不包含输入B中完整内容';
+        }
+        else {
+            result.innerHTML = '结果：输入B的内容最后一次在输入A出现的位置是第'+(c+1)+'位';
+        }
+        }
+    }
+    buttons[5].onclick = function() {
+        if (radioA.checked) {
+            var a = strA.value;
+            if (a==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+            result.innerHTML = '结果：'+a.slice(numA.value,numB.value);
+            }
+        }
+        else {
+            if (b==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+            var b = strB.value;
+            result.innerHTML = '结果：'+b.slice(numA.value,numB.value);
+        }
+        }
+    }
+    buttons[6].onclick = function() {
+        if (radioA.checked) {
+            var a = strA.value;
+            if (a==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                var ha = parseInt(strA.scrollHeight);
+                var rows = Math.floor(ha/20);
+                result.innerHTML = '结果：'+rows;
+            }
+        }
+        else {
+            var b = strB.value;
+            if (b==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                var hb = parseInt(strB.scrollHeight);
+                var rows = Math.floor(hb/20);
+                result.innerHTML = '结果：'+rows;
+            }
+        }
+    }
+    buttons[7].onclick = function() {
+        if (radioA.checked) {
+            var a = strA.value;
+            if (a==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                result.innerHTML = '结果：'+a.substr(numA.value,numB.value);
+            }
+        }
+        else {
+            var b = strB.value;
+            if (b==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                result.innerHTML = '结果：'+b.substr(numA.value,numB.value);
+            }
+        }
+    }
+    buttons[8].onclick = function() {
+        if (radioA.checked) {
+            var a = strA.value;
+            if (a==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                result.innerHTML = '结果：'+a.toUpperCase();
+            }
+        }
+        else {
+            var b = strB.value;
+            if (b==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                result.innerHTML = '结果：'+b.toUpperCase();
+            }
+        }
+    }
+    buttons[9].onclick = function() {
+        if (radioA.checked) {
+            var a = strA.value;
+            if (a==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                result.innerHTML = '结果：'+a.toLowerCase();
+            }
+        }
+        else {
+            var b = strB.value;
+            if (b==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                result.innerHTML = '结果：'+b.toLowerCase();
+            }
+        }
+    }
+    buttons[10].onclick = function() {
+        if (radioA.checked) {
+            var a = strA.value;
+            if (a==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                var a1 = a.replace(" ","");
+                for(var i = 0 ; i< a.length; i++){
+                    if (a.indexOf(" ")!==-1){
+                        a1 = a1.replace(" ","");
+                    }
+                }
+                result.innerHTML = '结果：'+a1;
+            }
+        }
+        else {
+            var b = strB.value;
+            if (b==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                var b1 = b.replace(" ","");
+                for(var i = 0 ; i< b.length; i++){
+                    if (b.indexOf(" ")!==-1){
+                        b1 = b1.replace(" ","");
+                    }
+                    }
+                }
+                result.innerHTML = '结果：'+b1;
+            }
+        }
+        buttons[11].onclick = function() {
+            var a = strA.value;
+            var b = strB.value;
+        if (radioA.checked) {
+            if (a==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                var a1 = a.replace("a",b);
+                for(var i = 0 ; i< a.length; i++){
+                    if (a.indexOf(" ")!==-1){
+                        a1 = a1.replace("a",b);
+                    }
+                }
+                result.innerHTML = '结果：'+a1;
+            }
+        }
+        else {
+            if (b==="") {
+                result.innerHTML = '内容不能为空！';
+            }
+            else {
+                var b1 = b.replace("a",a);
+                for(var i = 0 ; i< b.length; i++){
+                    if (b.indexOf(" ")!==-1){
+                        b1 = b1.replace("a",a);
+                    }
+                    }
+                }
+                result.innerHTML = '结果：'+b1;
+            }
+        }
+    </script>
+</body>
+</html>
